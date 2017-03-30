@@ -1,1 +1,26 @@
-<h2>Totally Where The Post Form Is Going To Be</h2>
+<form>
+  <div class="form-group">
+    <label for="festName">Name</label>
+    <input type="text" class="form-control" id="festName" placeholder="Awesome Musical Festival">
+  </div>
+  <div class="form-group">
+    <label for="festLocation">Location</label>
+    <input type="test" class="form-control" id="festLocation" placeholder="Awesome Town, CO">
+  </div>
+  <div class="form-group">
+    <label for="festStartDate">Start Date</label>
+    <input type="date" class="form-control" id="festStartDate">
+  </div>
+  <div class="form-group">
+    <label for="festEndDate">Ending Date</label>
+    <input type="date" class="form-control" id="festEndDate">
+  </div>
+  <label>Headlining Acts:</label>
+  <div class="form-group" ng-repeat="band in vm.bands">
+    <input type="test" class="form-control" placeholder="Cool Band">
+    <button class="btn btn-danger" ng-show="$last" ng-click="vm.removeBand()">-</button>
+  </div>
+     <button class="addfields" ng-click="vm.addBand()">Add a Band</button>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
