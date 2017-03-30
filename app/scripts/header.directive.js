@@ -1,5 +1,8 @@
 (function() {
   'use strict';
+  
+  angular.module('clientApp')
+  .directive('rfHeader', headerDirective);
 
     function headerDirective() {
       return {
@@ -11,8 +14,6 @@
       };
     }
 
-    angular.module('clientApp')
-      .directive('rfHeader', headerDirective);
 
 
 }());

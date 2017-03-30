@@ -1,6 +1,9 @@
 (function() {
   'use strict';
 
+  angular.module('clientApp')
+  .directive('rfPost', postDirective);
+
     function postDirective() {
       return {
         restrict: 'E',
@@ -11,8 +14,6 @@
       };
     }
 
-    angular.module('clientApp')
-      .directive('rfPost', postDirective);
 
 
 }());
