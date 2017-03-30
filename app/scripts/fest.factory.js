@@ -68,11 +68,16 @@
       ];
 
       return {
-        getFests: getFests
+        getFests: getFests,
+        addFest: addFest,
       }
 
       function getFests () {
         return fests;
+      }
+
+      function addFest(festObj){
+        fests.unshift(festObj);
       }
 
     }
