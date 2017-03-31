@@ -1,27 +1,58 @@
-<form novalidate name="postForm" ng-submit="vm.postFormSubmit(postForm)">
-  <div class="form-group">
-    <label for="festName">Name</label>
-    <input type="text" ng-model="vm.post.name" class="form-control" id="festName" placeholder="Awesome Musical Festival">
-  </div>
-  <div class="form-group">
-    <label for="festLocation">Location</label>
-    <input type="text" ng-model="vm.post.location" class="form-control" id="festLocation" placeholder="Awesome Town, CO">
-  </div>
-  <div class="form-group">
-    <label for="festStartDate">Start Date</label>
-    <input type="date" ng-model="vm.post.startDate" class="form-control" id="festStartDate">
-  </div>
-  <div class="form-group">
-    <label for="festEndDate">Ending Date</label>
-    <input type="date" ng-model="vm.post.endDate" class="form-control" id="festEndDate">
-  </div>
-  <label>Headlining Acts:</label>
-  <div class="form-group" ng-repeat="band in vm.bands">
-    <input type="test" class="form-control" ng-model="band.name" placeholder="Cool Band">
-    <button class="btn btn-danger" ng-show="$last" ng-click="vm.removeBand()">-</button>
-  </div>
-  <button type="button"class="addfields" ng-click="vm.addBand()">Add a Band</button>
+<div class="row ">
+<div class="container col-md-6 col-md-offset-3 fest-form">
+  <h1 class="text-center">Tell Us About The Best Fests!</h1>
 
-  <button type="submit" class="btn btn-default">Submit</button>
+<form novalidate name="postForm" ng-submit="vm.postFormSubmit(postForm)" class="form-horizontal">
+
+  <div class="form-group">
+    <label for="festName" class="col-md-3 control-label">Festival Name</label>
+    <div class="col-md-8">
+      <input type="text" ng-model="vm.post.name" class="form-control" id="festName" placeholder="Awesome Musical Festival">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="festStartDate" class="col-md-3 control-label">Start Date</label>
+    <div class="col-md-4">
+      <input type="date" ng-model="vm.post.startDate" class="form-control" id="festStartDate">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="festEndDate" class="col-md-3 control-label">End Date</label>
+    <div class="col-md-4">
+      <input type="date" ng-model="vm.post.endDate" class="form-control" id="festEndDate">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="festLocation" class="col-md-3 control-label">Location</label>
+    <div class="col-md-8">
+      <input type="text" ng-model="vm.post.location" class="form-control" id="festLocation" placeholder="Awesome Town, CO">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-3 control-label">Headlining Acts</label>
+  </div>
+
+<div class="form-group" ng-repeat="band in vm.bands">
+  <label class="col-md-3 col-sm-3 col-xs-3 control-label text-right">Band {{band.id}}</label>
+
+  <div class="col-md-7 col-sm-7 col-xs-7">
+    <input type="text" class="form-control band-name" ng-model="band.name" placeholder="Cool Band">
+  </div>
+  <div class="col-xs-1">
+
+    <button class="btn btn-danger" ng-show="$last && !$first" ng-click="vm.removeBand()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+  </div>
+</div>
+
+<div class="form-group text-center form-buttons">
+  <button type="button"class="btn btn-info" ng-click="vm.addBand()">Add Another Band!</button>
+  <button type="submit" class="btn btn-success">Post This Fest!</button>
   <button type="button" class="btn btn-danger" ng-click="vm.toggleForm()">Cancel</button>
+</div>
 </form>
+</div>
+</div>

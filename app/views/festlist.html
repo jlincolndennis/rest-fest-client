@@ -1,15 +1,20 @@
-<div>
-  <h1>Look at all these freaking fests!</h1>
-  <div ng-repeat="fest in vm.fests">
-    <h3 >{{fest.name}}</h3>
-    <h4>{{fest.startDate}} - {{fest.endDate}}</h4>
-    <h4>{{fest.location}}</h4>
-    <h4>Featuring:</h2>
-    <div ng-repeat="headliner in fest.headliners">
-      <p>{{headliner}}</p>
-    </div>
+<div class="text-center">
+  <div class="list-header">
+  <h1 >Check Out These Upcoming Fests!</h1>
+  <p>Sort: <a ng-click="vm.changeSortCriteria('name')">Alphabetically</a> | <a ng-click="vm.changeSortCriteria('startDate')">By Date</a> | <a ng-click="vm.changeSortCriteria('postedOn')">Recently Posted</a></p>
+  </div>
+
+  <div class="col-md-8 col-md-offset-2">
+  <div class="festival-listing" ng-repeat="fest in vm.fests | orderBy : vm.sortCriteria">
+    <h2 class="fest-name">{{fest.name}}</h2>
+    <h3>{{fest.startDate| amDateFormat: 'MMMM Do YYYY'}} - {{fest.endDate | amDateFormat: 'MMMM Do YYYY'}}</h3>
+    <h3>{{fest.location}}</h3>
+    <h4 class="featuring">Featuring:</h4>
+    <h3><span ng-repeat="headliner in fest.headliners">{{headliner}}{{$last ? '' : ',  '}}</span></h3>
+    <p class="listing-footer">Posted: {{fest.postedOn | amCalendar}} | <span class="delete-link" ng-click="vm.deletePost(fest)">Delete This Posting</span></p>
+
 
 
   </div>
-
+</div>
 </div>

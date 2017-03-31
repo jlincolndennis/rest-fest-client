@@ -2,9 +2,7 @@
   'use strict';
 
   const dependencies = [
-    'ui.router',
-    'ngAnimate',
-    'ngMessages',
+  'angularMoment'
   ];
 
   angular.module('clientApp', dependencies);

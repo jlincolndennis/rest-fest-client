@@ -10,59 +10,64 @@
       const fests = [
         {
           name: 'Awesome Fest 2017',
-          startDate: 'August 14, 2017',
-          endDate: 'August 17, 2017',
+          startDate: new Date('August 14, 2017'),
+          endDate: new Date('August 17, 2017'),
           headliners: [
             'Fish Stix',
             'Jimmy Cracks Corn',
             'Grapes of Rad'
           ],
-          location: 'Jacksons Hole, WY'
+          location: 'Jacksons Hole, WY',
+          postedOn: new Date()
         },
         {
           name: 'SuperCoolMusicJamzz 17',
-          startDate: 'June 1, 2017',
-          endDate: 'June 7, 2017',
+          startDate: new Date('June 1, 2017'),
+          endDate: new Date('June 7, 2017'),
           headliners: [
             'Granny\'s Basement',
             'CandyGram',
             'The Nice Boys',
             'Hello Mother'
           ],
-          location: 'Denver, CO'
+          location: 'Denver, CO',
+          postedOn: new Date()
         },
         {
           name: 'Every One Of The Next Day\'s Social Gatherings',
-          startDate: 'May 24, 2017',
-          endDate: 'May 26, 2017',
+          startDate: new Date('May 24, 2017'),
+          endDate: new Date('May 26, 2017'),
           headliners: [
             'The Satin Subway',
             'Metal Blimp'
           ],
-          location: 'Las Vegas, NV'
+          location: 'Las Vegas, NV',
+          postedOn: new Date()
         },
         {
           name: 'Music Is Pretty Neat Fest',
-          startDate: 'September 3, 2017',
-          endDate: 'September 7, 2017',
+          startDate: new Date('September 3, 2017'),
+          endDate: new Date('September 7, 2017'),
           headliners: [
             'Mrs. Johnson\'s Clavical',
             'The Dog House Boyzzzzz',
             'Spunky Jones and The Excited Taxidermists'
           ],
-          location: 'San Francisco, CA'
+          location: 'San Francisco, CA',
+          postedOn: new Date()
         },
         {
           name: 'Tunez N Stuff',
-          startDate: 'July 6, 2017',
-          endDate: 'July 9, 2017',
+          startDate: new Date('July 6, 2017'),
+          endDate: new Date('July 9, 2017'),
           headliners: [
             'Funky Dave',
             'The Rubber Ducks',
-            'Who Stole The Peanut Butter?',
-            'BrUUm Closet'
+            'BrUUm Closet',
+            'Who Stole The Peanut Butter?'
           ],
-          location: 'New York, NY'
+          location: 'New York, NY',
+          postedOn: new Date()
         },
 
       ];
@@ -70,6 +75,7 @@
       return {
         getFests: getFests,
         addFest: addFest,
+        deletePost: deletePost
       }
 
       function getFests () {
@@ -77,7 +83,13 @@
       }
 
       function addFest(festObj){
-        fests.unshift(festObj);
+        fests.push(festObj);
+      }
+
+      function deletePost(post) {
+        var index = fests.indexOf(post);
+        fests.splice(index, 1);
+
       }
 
     }

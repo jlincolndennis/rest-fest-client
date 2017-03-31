@@ -1,8 +1,13 @@
-<div class="container">
-<h1>RESTFests <small>All The Best Fests!</small></h1>
-<button class="btn btn-block" ng-class="vm.button.class" ng-click="vm.togglePostForm()">
+<div class="jumbotron">
+
+<h1>RESTFests
+<small>All The Best Fests!</small></h1>
+<button class="btn btn-lrg" ng-class="vm.button.class" ng-click="vm.togglePostForm()">
   {{vm.button.text}}
 </button>
+</div>
+
+<div class="container">
 
 <rf-post foo="vm.togglePostForm" ng-show="vm.showPostForm"></rf-post>
 <rf-fest-list></rf-fest-list>
