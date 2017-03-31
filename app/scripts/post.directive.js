@@ -10,7 +10,7 @@
         scope: {
           foo: '='
         },
-        templateUrl: '/views/posts.html',
+        templateUrl: '/views/postform.html',
         controller: PostController,
         controllerAs: 'vm'
       };
@@ -39,20 +39,27 @@
       }
 
       function postFormSubmit(form) {
-
+        /// WHY YOU NO LIKE FAT ARROWS, JSLINT???
         vm.post.headliners = vm.bands.map(function (band) {
           return band.name;
         })
+        console.log(vm.post.headliners);
+        if(vm.post.headliners[0] === undefined){
+          vm.post.headliners[0] ='TBA';
+        }
+
         vm.post.postedOn = new Date();
-        console.log(vm.post);
         festFactory.addFest(vm.post);
-        vm.post = {};
-        vm.bands = [{id: 1}];
+        formReset(form);
         vm.toggleForm();
-
-
       }
 
+      function formReset(form) {
+        form.$setPristine();
+        form.$setUntouched();
+        vm.post = {};
+        vm.bands = [{id: 1}];
+      }
 
     }
 
