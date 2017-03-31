@@ -20,7 +20,6 @@
       const vm = this;
       vm.showPostForm = false;
       vm.button = toggleButtonDeets();
-
       vm.togglePostForm = togglePostForm;
 
       function togglePostForm() {
@@ -37,9 +36,6 @@
                   class: 'btn-success'}
         }
       }
-
-
-
     }
 
 

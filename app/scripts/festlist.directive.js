@@ -24,15 +24,12 @@
       vm.changeSortCriteria = changeSortCriteria;
 
       function deletePost(post) {
-        console.log(post);
         festFactory.deletePost(post);
       }
 
       function changeSortCriteria(sortBy) {
-        console.log(sortBy);
         vm.sortCriteria = sortBy;
       }
-
     }
 
 

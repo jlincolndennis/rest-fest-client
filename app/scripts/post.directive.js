@@ -47,6 +47,9 @@
         if(vm.post.headliners[0] === undefined){
           vm.post.headliners[0] ='TBA';
         }
+        if(vm.post.headliners[length-1] === undefined){
+          vm.post.headliners.splice(length-1, 1);
+        }
 
         vm.post.postedOn = new Date();
         festFactory.addFest(vm.post);
@@ -62,7 +65,5 @@
       }
 
     }
-
-
 
 }());

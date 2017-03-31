@@ -89,7 +89,6 @@
       function deletePost(post) {
         var index = fests.indexOf(post);
         fests.splice(index, 1);
-
       }
 
     }

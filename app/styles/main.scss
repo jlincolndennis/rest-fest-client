@@ -1,7 +1,6 @@
 html, body {
     height:100%;
     font-family: 'Raleway', sans-serif;
-
 }
 
 .jumbotron {
@@ -16,13 +15,13 @@ html, body {
   h1 {
     font-family: 'Nixie One', cursive;
 
-  small{
-    color: rgb(228, 226, 226);
-}
+    small{
+      color: rgb(228, 226, 226);
+    }
 
   }
 
-  .btn {
+.btn {
     font-size: 21px;
     padding: 14px 24px;
   }
@@ -53,6 +52,10 @@ html, body {
   border-radius: 25px;
   margin-bottom: 100px;
   padding: 25px;
+}
+
+a.sort-select {
+  cursor: pointer;
 }
 
 .fest-name {

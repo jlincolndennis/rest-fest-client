@@ -1,70 +1,72 @@
 <div class="row ">
-<div class="container col-md-6 col-md-offset-3 fest-form">
-  <h1 class="text-center">Tell Us About The Best Fests!</h1>
+  <div class="container col-md-6 col-md-offset-3 fest-form">
 
-<form novalidate name="postForm" ng-submit="vm.postFormSubmit(postForm)" class="form-horizontal">
+    <h1 class="text-center">Tell Us About The Best Fests!</h1>
 
-  <div class="form-group" ng-class="{'has-error': postForm.festName.$invalid && postForm.festName.$touched, 'has-success': postForm.festName.$valid}">
-    <label for="festName" class="col-md-3 control-label">Festival Name</label>
-    <div class="col-md-8">
-      <input type="text" ng-model="vm.post.name" class="form-control" id="festName" name="festName" placeholder="Awesome Musical Festival" required>
-    <div ng-messages="postForm.festName.$error" ng-if="postForm.festName.$touched">
-      <p ng-message="required" class="control-label">Please enter Festival Name.</p>
-    </div>
-  </div>
-  </div>
+    <form novalidate name="postForm" ng-submit="vm.postFormSubmit(postForm)" class="form-horizontal">
 
-  <div class="form-group" ng-class="{'has-error': postForm.festStartDate.$invalid && postForm.festStartDate.$touched, 'has-success': postForm.festStartDate.$valid}">
-    <label for="festStartDate" class="col-md-3 control-label">Start Date</label>
-    <div class="col-md-4">
-      <input type="date" ng-model="vm.post.startDate" class="form-control" id="festStartDate" name="festStartDate" required>
-      <div ng-messages="postForm.festStartDate.$error" ng-if="postForm.festStartDate.$touched">
-      <p ng-message="required" class="control-label">Please enter Start Date.</p>
+      <div class="form-group" ng-class="{'has-error': postForm.festName.$invalid && postForm.festName.$touched, 'has-success': postForm.festName.$valid}">
+        <label for="festName" class="col-md-3 control-label">Festival Name</label>
+        <div class="col-md-8">
+          <input type="text" ng-model="vm.post.name" class="form-control" id="festName" name="festName" placeholder="Awesome Musical Festival" required>
+          <div ng-messages="postForm.festName.$error" ng-if="postForm.festName.$touched">
+            <p ng-message="required" class="control-label">Please enter Festival Name.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="form-group" ng-class="{'has-error': postForm.festEndDate.$invalid && postForm.festEndDate.$touched, 'has-success': postForm.festEndDate.$valid}">
-    <label for="festEndDate" class="col-md-3 control-label">End Date</label>
-    <div class="col-md-4">
-      <input type="date" ng-model="vm.post.endDate" class="form-control" id="festEndDate" name="festEndDate"required>
-      <div ng-messages="postForm.festEndDate.$error" ng-if="postForm.festEndDate.$touched">
-      <p ng-message="required" class="control-label">Please enter End Date.</p>
+      <div class="form-group" ng-class="{'has-error': postForm.festStartDate.$invalid && postForm.festStartDate.$touched, 'has-success': postForm.festStartDate.$valid}">
+        <label for="festStartDate" class="col-md-3 control-label">Start Date</label>
+        <div class="col-md-4">
+          <input type="date" ng-model="vm.post.startDate" class="form-control" id="festStartDate" name="festStartDate" required>
+          <div ng-messages="postForm.festStartDate.$error" ng-if="postForm.festStartDate.$touched">
+            <p ng-message="required" class="control-label">Please enter Start Date.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="form-group" ng-class="{'has-error': postForm.festLocation.$invalid && postForm.festLocation.$touched, 'has-success': postForm.festLocation.$valid}">
-    <label for="festLocation" class="col-md-3 control-label">Location</label>
-    <div class="col-md-8">
-      <input type="text" ng-model="vm.post.location" class="form-control" id="festLocation" name="festLocation" placeholder="Awesome Town, CO" required>
-      <div ng-messages="postForm.festLocation.$error" ng-if="postForm.festLocation.$touched">
-      <p ng-message="required" class="control-label">Please enter Location.</p>
+      <div class="form-group" ng-class="{'has-error': postForm.festEndDate.$invalid && postForm.festEndDate.$touched, 'has-success': postForm.festEndDate.$valid}">
+        <label for="festEndDate" class="col-md-3 control-label">End Date</label>
+        <div class="col-md-4">
+          <input type="date" ng-model="vm.post.endDate" class="form-control" id="festEndDate" name="festEndDate"required>
+          <div ng-messages="postForm.festEndDate.$error" ng-if="postForm.festEndDate.$touched">
+            <p ng-message="required" class="control-label">Please enter End Date.</p>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <div class="form-group" ng-class="{'has-error': postForm.festLocation.$invalid && postForm.festLocation.$touched, 'has-success': postForm.festLocation.$valid}">
+        <label for="festLocation" class="col-md-3 control-label">Location</label>
+        <div class="col-md-8">
+          <input type="text" ng-model="vm.post.location" class="form-control" id="festLocation" name="festLocation" placeholder="Awesome Town, CO" required>
+          <div ng-messages="postForm.festLocation.$error" ng-if="postForm.festLocation.$touched">
+            <p ng-message="required" class="control-label">Please enter Location.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-3 control-label">Headlining Acts</label>
+      </div>
+
+      <div class="form-group" ng-repeat="band in vm.bands">
+        <label class="col-md-3 col-sm-3 col-xs-3 control-label text-right">Band {{band.id}}</label>
+        <div class="col-md-7 col-sm-7 col-xs-7">
+          <input type="text" class="form-control band-name" ng-model="band.name" placeholder="Cool Band">
+        </div>
+
+        <div class="col-xs-1">
+          <button class="btn btn-danger" ng-show="$last && !$first" ng-click="vm.removeBand()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+        </div>
+      </div>
+
+      <div class="form-group text-center form-buttons">
+        <button type="button"class="btn btn-info" ng-click="vm.addBand()">Add Another Band!</button>
+        <button type="submit" class="btn btn-success" ng-disabled="postForm.$invalid">Post This Fest!</button>
+        <button type="button" class="btn btn-danger" ng-click="vm.toggleForm(postForm)">Cancel</button>
+      </div>
+
+    </form>
+    
   </div>
-
-  <div class="form-group">
-    <label class="col-md-3 control-label">Headlining Acts</label>
-  </div>
-
-<div class="form-group" ng-repeat="band in vm.bands">
-  <label class="col-md-3 col-sm-3 col-xs-3 control-label text-right">Band {{band.id}}</label>
-
-  <div class="col-md-7 col-sm-7 col-xs-7">
-    <input type="text" class="form-control band-name" ng-model="band.name" placeholder="Cool Band">
-  </div>
-  <div class="col-xs-1">
-
-    <button class="btn btn-danger" ng-show="$last && !$first" ng-click="vm.removeBand()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-  </div>
-</div>
-
-<div class="form-group text-center form-buttons">
-  <button type="button"class="btn btn-info" ng-click="vm.addBand()">Add Another Band!</button>
-  <button type="submit" class="btn btn-success" ng-disabled="postForm.$invalid">Post This Fest!</button>
-  <button type="button" class="btn btn-danger" ng-click="vm.toggleForm(postForm)">Cancel</button>
-</div>
-</form>
-</div>
 </div>
