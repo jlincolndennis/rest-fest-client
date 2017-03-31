@@ -7,22 +7,28 @@
     function postDirective() {
       return {
         restrict: 'E',
-        scope: {},
+        scope: {
+          foo: '='
+        },
         templateUrl: '/views/posts.html',
         controller: PostController,
         controllerAs: 'vm'
       };
     }
 
-    PostController.$inject = ['$log', 'festFactory'];
+    PostController.$inject = ['$log', '$scope', 'festFactory'];
 
-    function PostController($log, festFactory) {
+    function PostController($log, $scope, festFactory) {
       const vm = this;
+      console.log($scope.foo);
+      // console.log(vm);
+
       vm.post = {};
       vm.bands = [{id: 'band1'}];
       vm.addBand = addBand;
       vm.removeBand = removeBand;
       vm.postFormSubmit = postFormSubmit;
+      vm.toggleForm = $scope.foo
 
       function addBand() {
         var newBandNo = vm.bands.length + 1;
@@ -43,7 +49,11 @@
           return band.name;
         })
         console.log(vm.post);
-        festFactory.addFest(vm.post)
+        festFactory.addFest(vm.post);
+        vm.post = {};
+        vm.toggleForm();
+
+
       }
 
 
